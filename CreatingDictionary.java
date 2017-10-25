@@ -13,10 +13,10 @@ public class CreatingDictionary {
 	static int Count = 0;
 	public static void main(String[] args) throws IOException {
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-	              new FileOutputStream("C:/PHD_work_sem2_649/Dictionary.txt"), "utf-8"))) {
+	              new FileOutputStream("Dictionary.txt"), "utf-8"))) { // Dictionary.txt will be the output file we need
 			writer.write("{ \n");
 		
-	   	String filePath = "C:/PHD_work_sem2_649/TSRKeys.txt";
+	   	String filePath = "TSRKeys.txt"; // All unique TSR keys
 		Scanner scanner1 = new Scanner(new File(filePath));
 		while (scanner1.hasNextLine()) {
 			  String line1 = scanner1.nextLine();
@@ -25,7 +25,7 @@ public class CreatingDictionary {
 				  System.out.println(TSR1);
 				  writer.write("\t"+TSR1+": {"+"\n");
 				  map = new HashMap<String,Integer>();
-				  goToEachFile("C:/PHD_work_sem2_649/SCOPbetaProt/SCOPbetaProt",TSR1);
+				  goToEachFile("C:/PHD_work_sem2_649/SCOPbetaProt/SCOPbetaProt",TSR1); // Path to Data Set
 				  Iterator it = map.entrySet().iterator();
 				   while (it.hasNext()) {
 					   Map.Entry pair = (Map.Entry)it.next();
